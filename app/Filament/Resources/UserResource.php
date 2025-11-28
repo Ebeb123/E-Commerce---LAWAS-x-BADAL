@@ -23,14 +23,18 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
            ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
-                
-                    
+
+
                 Forms\Components\TextInput::make('email')
                     ->label('Email Address')
                     ->email()
@@ -46,9 +50,9 @@ class UserResource extends Resource
                     ->password()
                     ->dehydrated(fn ($state) => filled($state))
                     ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord)
-                        
 
-                
+
+
             ]);
     }
 
@@ -58,14 +62,14 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                
+
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable(),
-                    
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),    
@@ -79,13 +83,12 @@ class UserResource extends Resource
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
                 ]),
-                
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-                
             ]);
     }
 
@@ -93,8 +96,12 @@ class UserResource extends Resource
     {
         return [
             OrdersRelationManager::class
-            
         ];
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
     }
 
     public static function getPages(): array
