@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'category_id',
         'brand_id',
@@ -20,18 +21,17 @@ class Product extends Model
         'is_featured',
         'in_stock',
         'on_sale', 
-
     ];
 
-
     protected $casts = [
-        'images' => 'array',
+        'images' => 'array', // THIS LINE IS THE FIX. It must be 'images', not 'image'
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+    
     public function brand()
     {
         return $this->belongsTo(Brand::class);

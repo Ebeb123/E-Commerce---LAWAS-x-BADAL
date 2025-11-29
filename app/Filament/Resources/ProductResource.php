@@ -71,8 +71,8 @@ class ProductResource extends Resource
                                 ->fileAttachmentsDisk('products')
                     ])->columns(2),
 
-                    Section::make('Images')->schema([
-                        FileUpload::make('images')
+                    Section::make('Image')->schema([
+                        FileUpload::make('image')
                             ->multiple()
                             ->directory('products')
                             ->maxFiles(5)
