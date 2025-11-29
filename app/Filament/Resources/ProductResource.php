@@ -71,14 +71,11 @@ class ProductResource extends Resource
                                 ->fileAttachmentsDisk('products')
                     ])->columns(2),
 
-                    Section::make('Image')->schema([
-                        FileUpload::make('image')
+                    FileUpload::make('images')
                             ->multiple()
-                            ->directory('products')
+                            ->directory('products') // This saves files to storage/app/public/products
                             ->maxFiles(5)
                             ->reorderable(),
-                    ])
-
                 ])->columnSpan(2),
 
                 Group::make()->schema([

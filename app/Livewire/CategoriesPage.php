@@ -2,18 +2,19 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use Livewire\Attributes\Title;
 use App\Models\Category;
+use Livewire\Attributes\Title;
+use Livewire\Component;
 
-#[Title('Categories - DCodeMania')]
+#[Title('Categories - Reil')]
+
 class CategoriesPage extends Component
 {
     public function render()
     {
         $categories = Category::where('is_active', 1)->get();
-        return view('livewire.categories-page',
-        ['categories' => $categories,]);
-
+        return view('livewire.categories-page', [
+            'categories' => $categories,
+        ]);
     }
 }
