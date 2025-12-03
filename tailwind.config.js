@@ -6,6 +6,7 @@ export default {
     "./resources/**/*.vue",
     'node_modules/preline/dist/*.js', 
   ],
+      safelist: ['bg-red-500', 'text-white'],
   darkMode: 'class',
   theme: {
     extend: {},

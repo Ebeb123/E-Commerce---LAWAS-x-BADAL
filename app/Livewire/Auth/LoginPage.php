@@ -11,7 +11,7 @@ class LoginPage extends Component
     public $email;
     public $password;
 
-    public function login()
+    public function save()
     {
         $this->validate([
             'email' => 'required|email|max:255|exists:users,email',
@@ -22,7 +22,7 @@ class LoginPage extends Component
             session()->flash('error', 'Invalid credentials.');
             return;
         }
-
+ 
         return redirect()->intended();
     }
 
