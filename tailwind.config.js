@@ -6,12 +6,22 @@ export default {
     "./resources/**/*.vue",
     'node_modules/preline/dist/*.js', 
   ],
-      safelist: ['bg-red-500', 'text-white'],
-  darkMode: 'class',
+safelist: [
+  'bg-blue-500',
+  'bg-yellow-500',
+  'bg-green-500',
+  'bg-green-700',
+  'bg-red-500',
+  'bg-red-700',
+  'text-white',
+  'shadow',
+  'rounded'
+],  darkMode: 'class',
   theme: {
     extend: {},
   },
   plugins: [
     require('preline/plugin'),
   ],
+  
 }
