@@ -52,6 +52,5 @@ Route::get('/logout', function(){
 })->name('logout'); 
 Route::get('/checkout', CheckoutPage::class);
 Route::get('/my-orders', MyOrdersPage::class);
-Route::get('/my-orders/{order}', MyOrderDetailPage::class);
-Route::get('/success', SuccessPage::class)->name('success');
+Route::get('/my-orders/{order}', MyOrderDetailPage::class)->name('my-order.show');Route::get('/success', SuccessPage::class)->name('success');
 Route::get('/cancel', CancelPage::class)->name('cancel');});
