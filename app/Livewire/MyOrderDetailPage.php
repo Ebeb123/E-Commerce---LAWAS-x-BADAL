@@ -21,8 +21,7 @@ class MyOrderDetailPage extends Component
     {
         $order_items = OrderItem::with('product')->where('order_id', $this->order_id)->get();
         $address = Address::where('order_id', $this->order_id)->first();
-        $order = Order::where('id', $this->order_id)->first();
-
+        $order = Order::findOrFail($this->order_id);
         return view('livewire.my-order-detail-page', [
             'order_items' => $order_items,
             'address' => $address,
